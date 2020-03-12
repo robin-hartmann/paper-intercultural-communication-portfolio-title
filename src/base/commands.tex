@@ -1,0 +1,146 @@
+% !TEX root = ../root.tex
+
+% Abkürzungen, ggfs. mit korrektem Leerraum
+\newcommand{\bs}{$\backslash$\xspace}
+\newcommand{\bspw}{bspw.\xspace}
+\newcommand{\bzw}{bzw.\xspace}
+\newcommand{\ca}{ca.\xspace}
+\newcommand{\dahe}{\mbox{d.\,h.}\xspace}
+\newcommand{\etc}{etc.\xspace}
+\newcommand{\eur}[1]{\mbox{\num{#1}\,\texteuro}\xspace}
+\newcommand{\evtl}{evtl.\xspace}
+\newcommand{\ggfs}{ggfs.\xspace}
+\newcommand{\Ggfs}{Ggfs.\xspace}
+\newcommand{\gqq}[1]{\glqq{}#1\grqq{}}
+\newcommand{\inkl}{inkl.\xspace}
+\newcommand{\insb}{insb.\xspace}
+\newcommand{\ua}{\mbox{u.\,a.}\xspace}
+\newcommand{\usw}{usw.\xspace}
+\newcommand{\Vgl}{Vgl.\xspace}
+\newcommand{\zB}{\mbox{z.\,B.}\xspace}
+
+% Befehle für häufig anfallende Aufgaben
+\newcommand{\includegraphicsKeepAspectRatio}[2]{\includegraphics[width=#2\textwidth,height=#2\textheight,keepaspectratio]{#1}} % Parameter: file, scale
+\newcommand{\Zitat}[2][\empty]{\ifthenelse{\equal{#1}{\empty}}{\citep{#2}}{\citep[#1]{#2}}}
+\newcommand{\Autor}[1]{\textsc{#1}} % zum Ausgeben von Autoren
+\newcommand{\itemd}[2]{\item{\textbf{#1}}\\{#2}} % erzeugt ein Listenelement mit fetter Überschrift
+
+\newcommand{\secref}[1]{\autoref{sec:#1}: \nameref{sec:#1}} % erzeugt eine Referenz zu einer section im Format "Abschnitt/Unterabschnitt <nummer>: <name>"
+\newcommand{\appref}[1]{\appendixname{}~\ref{app:#1}: \nameref{app:#1} \vpageref{app:#1}} % erzeugt eine Referenz zu einem Anhang im Format "Anhang <nummer>: <name> auf Seite <seite>"
+\newcommand{\figref}[1]{\autoref{fig:#1}} % erzeugt eine Referenz zu einer Abbildung im Format "Abbildung <nummer>"
+\newcommand{\tabref}[1]{\autoref{tab:#1}} % erzeugt eine Referenz zu einer Tabelle im Format "Tabelle <nummer>"
+\newcommand{\lstref}[1]{\autoref{lst:#1}} % erzeugt eine Referenz zu einem Listing im Format "Listing <nummer>"
+\newcommand{\itemref}[1]{\autoref{enum:#1}} % erzeugt eine Referenz zu Stichpunkt im Format "Punkt <nummer>"
+
+% Hilfsbefehl für label (Parameter: [label], section, prefix)
+\newcommand{\createlabel}[3][]{%
+	\ifthenelse{\isempty{#1}}%
+		{\label{#3:#2}}%
+		{\label{#3:#1}}%
+}
+
+% Hilfsbefehle für label (Parameter: [label], sectionname, prefix, sectiontype)
+\newcommand{\labeledgeneric}[4][]{#4{#2}\createlabel[#1]{#2}{#3}}
+\newcommand{\labeledgenericrootsection}[3][]{\labeledgeneric[#1]{#2}{#3}{\section}}
+\newcommand{\labeledgenericsubsection}[3][]{\labeledgeneric[#1]{#2}{#3}{\subsection}}
+\newcommand{\labeledgenericsubsubsection}[3][]{\labeledgeneric[#1]{#2}{#3}{\subsubsection}}
+
+% Befehle für normale section mit label (Parameter: [label], section)
+\newcommand{\labeledsection}[2][]{\labeledgenericrootsection[#1]{#2}{sec}}
+\newcommand{\labeledsubsection}[2][]{\labeledgenericsubsection[#1]{#2}{sec}}
+\newcommand{\labeledsubsubsection}[2][]{\labeledgenericsubsubsection[#1]{#2}{sec}}
+
+% Befehle für appendix section mit label (Parameter: [label], section)
+\newcommand{\labeledappendix}[2][]{\labeledgenericsubsection[#1]{#2}{app}}
+\newcommand{\labeledsubappendix}[2][]{\labeledgenericsubsubsection[#1]{#2}{app}}
+
+% Befehle für item aus enum mit label (Parameter: label)
+\newcommand{\labeleditem}[1]{\item\label{enum:#1}}
+
+\newcommand{\footcite}[1]{\footnote{\Vgl \cite{#1}}} % Erstellt eine Fußnote mit Zitierung in der Form "Vgl. <zitierung>"
+
+% fügt Tabellen aus einer TEX-Datei ein
+\newcommand{\ctablex}[3]{ % Parameter: caption, label, file
+\begin{table}[htbp]
+\centering
+\singlespacing
+\input{Tabellen/#3}
+\caption{#1}
+\label{tab:#2}
+\end{table}
+}
+
+\newcommand{\ctable}[2]{ % Parameter: caption, file
+\ctablex{#1}{#1}{#2}
+}
+
+\newcommand{\ctableapp}[1]{ % Parameter: file
+\begin{center}
+\singlespacing
+\input{Tabellen/#1}
+\end{center}
+}
+
+% fügt Bilder ein, sodass sie über \figref referenziert werden können
+\newcommand{\cfigurex}[5]{ % Parameter: caption, label, file, width, trim
+	\begin{figure}[htb]
+		\centering
+		\includegraphics[keepaspectratio, clip, width=#4, trim={#5}]{#3}
+		\caption{#1}
+		\label{fig:#2}
+	\end{figure}
+}
+
+\newcommand{\cfigure}[4]{ % Parameter: caption, file, width, trim
+\cfigurex{#1}{#1}{#2}{#3}{#4}
+}
+
+\newcommand{\cfigureapp}[3]{ % Parameter: file, width, trim
+\begin{figure}[htb]
+	\centering
+	\includegraphics[keepaspectratio, clip, width=#2, trim={#3}]{#1}
+\end{figure}
+}
+
+% einfaches Wechseln der Schrift, z.B.: \changefont{cmss}{sbc}{n}
+\newcommand{\changefont}[3]{\fontfamily{#1} \fontseries{#2} \fontshape{#3} \selectfont}
+
+% Verwendung analog zu \includegraphics
+% Parameter: file, padding-x, padding-y
+% Beispiel: \includegraphicstotab[scale=0.5]{example.png}{2px}{2px}
+\newlength{\myx} % Variable zum Speichern der Bildbreite
+\newlength{\myy} % Variable zum Speichern der Bildhöhe
+\newcommand\includegraphicstotab[4][\relax]{%
+\settowidth{\myx}{\includegraphics[{#1}]{#2}}%
+\settoheight{\myy}{\includegraphics[{#1}]{#2}}%
+\parbox[c][\myy + #4][c]{\myx + #3}{%
+\includegraphics[{#1}]{#2}}%
+}
+
+% The % comment at the end of certain lines removes the space otherwise inserted by the end-of-line character (which is usually turned into a space)
+
+\definecolor{AOBlau}{rgb}{0, 0.28, 0.56}
+
+% verschiedene Befehle um Wörter semantisch auszuzeichnen ----------------------
+\newcommand{\Index}[2][\empty]{\ifthenelse{\equal{#1}{\empty}}{\index{#2}#2}{\index{#1}#2}}
+\newcommand{\Fachbegriff}[2][\empty]{\ifthenelse{\equal{#1}{\empty}}{\textit{\Index{#2}}}{\textit{\Index[#1]{#2}}}}
+\newcommand{\NeuerBegriff}[2][\empty]{\ifthenelse{\equal{#1}{\empty}}{\textbf{\Index{#2}}}{\textbf{\Index[#1]{#2}}}}
+
+\newcommand{\Ausgabe}[1]{\texttt{#1}}
+\newcommand{\Eingabe}[1]{\texttt{#1}}
+\newcommand{\Code}[1]{\texttt{#1}}
+\newcommand{\Datei}[1]{\texttt{#1}}
+
+\newcommand{\Assembly}[1]{\textsf{#1}}
+\newcommand{\Klasse}[1]{\textsf{#1}}
+\newcommand{\Methode}[1]{\textsf{#1}}
+\newcommand{\Attribut}[1]{\textsf{#1}}
+
+\newcommand{\Datentyp}[1]{\textsf{#1}}
+\newcommand{\XMLElement}[1]{\textsf{#1}}
+\newcommand{\Webservice}[1]{\textsf{#1}}
+
+\newcommand{\Refactoring}[1]{\Fachbegriff{#1}}
+\newcommand{\CodeSmell}[1]{\Fachbegriff{#1}}
+\newcommand{\Metrik}[1]{\Fachbegriff{#1}}
+\newcommand{\DesignPattern}[1]{\Fachbegriff{#1}}

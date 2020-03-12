@@ -1,0 +1,125 @@
+% !TEX root = ../root.tex
+
+% Anpassung an Landessprache ---------------------------------------------------
+\usepackage{babel}
+
+% Umlaute ----------------------------------------------------------------------
+%   Umlaute/Sonderzeichen wie äüöß direkt im Quelltext verwenden (CodePage).
+%   Erlaubt automatische Trennung von Worten mit Umlauten.
+% ------------------------------------------------------------------------------
+\usepackage[T1]{fontenc}
+\usepackage{textcomp} % Euro-Zeichen etc.
+
+% Schrift ----------------------------------------------------------------------
+\usepackage{lmodern} % bessere Fonts
+\usepackage{relsize} % Schriftgröße relativ festlegen
+
+% Tabellen ---------------------------------------------------------------------
+\PassOptionsToPackage{table}{xcolor}
+\usepackage{tabularx}
+\usepackage{threeparttable}
+% für lange Tabellen
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{ragged2e}
+\usepackage{lscape}
+\newcolumntype{w}[1]{>{\raggedleft\hspace{0pt}}p{#1}} % Spaltendefinition rechtsbündig mit definierter Breite
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}} % Spaltendefinition linksbündig mit definierter Breite und manuellen Zeilenumbrüchen
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}} % Spaltendefinition zentriert mit definierter Breite und manuellen Zeilenumbrüchen
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}} % Spaltendefinition rechtsbündig mit definierter Breite und manuellen Zeilenumbrüchen
+
+% Grafiken ---------------------------------------------------------------------
+\usepackage[dvips,final]{graphicx} % Einbinden von JPG-Grafiken ermöglichen
+\usepackage{graphics} % keepaspectratio
+\usepackage{floatflt} % zum Umfließen von Bildern
+\graphicspath{{images/}} % hier liegen die Bilder des Dokuments
+
+% Sonstiges --------------------------------------------------------------------
+\usepackage[titles]{tocloft} % Inhaltsverzeichnis DIN 5008 gerecht einrücken
+\usepackage{amsmath,amsfonts} % Befehle aus AMSTeX für mathematische Symbole
+\usepackage{enumitem} % anpassbare Enumerates/Itemizes
+\usepackage{xspace} % sorgt dafür, dass Leerzeichen hinter parameterlosen Makros nicht als Makroendezeichen interpretiert werden
+\usepackage{siunitx} % ermöglicht u.a. automatische Tausender-Trennzeichen
+\sisetup{
+	locale = DE,
+	group-separator = {.},
+	group-minimum-digits = 4
+}
+
+\usepackage{makeidx} % für Index-Ausgabe mit \printindex
+\usepackage[printonlyused]{acronym} % es werden nur benutzte Definitionen aufgelistet
+
+% Einfache Definition der Zeilenabstände und Seitenränder etc.
+\usepackage{setspace}
+\usepackage{geometry}
+
+% Vermeidet Schusterjungen und Hurenkinder
+\usepackage[all]{nowidow}
+
+% Symbolverzeichnis
+\usepackage{csquotes} % Erlaubt das Einfügen von [...] mit \textelp{}
+\usepackage[intoc]{nomencl}
+\let\abbrev\nomenclature
+\renewcommand{\nomname}{Abkürzungsverzeichnis}
+\setlength{\nomlabelwidth}{.25\hsize}
+\renewcommand{\nomlabel}[1]{#1 \dotfill}
+\setlength{\nomitemsep}{-\parsep}
+
+\usepackage{varioref} % Elegantere Verweise. „auf der nächsten Seite“
+\usepackage{url} % URL verlinken, lange URLs umbrechen etc.
+
+\usepackage{chngcntr} % fortlaufendes Durchnummerieren der Fußnoten
+% \usepackage[perpage]{footmisc} % Alternative: Nummerierung der Fußnoten auf jeder Seite neu
+
+\usepackage{xifthen} % bei der Definition eigener Befehle benötigt
+\usepackage{todonotes} % definiert u.a. die Befehle \todo und \listoftodos
+\usepackage[square]{natbib} % wichtig für korrekte Zitierweise
+
+\usepackage{footnote} % ermöglicht Fußnoten in Tabellen
+\makesavenoteenv{table}
+\makesavenoteenv{tabular}
+
+% PDF-Optionen -----------------------------------------------------------------
+\usepackage{pdfpages}
+\pdfminorversion=5 % erlaubt das Einfügen von pdf-Dateien bis Version 1.7, ohne eine Fehlermeldung zu werfen (keine Garantie für fehlerfreies Einbetten!)
+\usepackage[
+    bookmarks,
+    bookmarksnumbered,
+    bookmarksopen=true,
+    bookmarksopenlevel=1,
+    colorlinks=true,
+% diese Farbdefinitionen zeichnen Links im PDF farblich aus
+    linkcolor=AOBlau, % einfache interne Verknüpfungen
+    anchorcolor=AOBlau,% Ankertext
+    citecolor=AOBlau, % Verweise auf Literaturverzeichniseinträge im Text
+    filecolor=AOBlau, % Verknüpfungen, die lokale Dateien öffnen
+    menucolor=AOBlau, % Acrobat-Menüpunkte
+    urlcolor=AOBlau,
+% diese Farbdefinitionen sollten für den Druck verwendet werden (alles schwarz)
+    %linkcolor=black, % einfache interne Verknüpfungen
+    %anchorcolor=black, % Ankertext
+    %citecolor=black, % Verweise auf Literaturverzeichniseinträge im Text
+    %filecolor=black, % Verknüpfungen, die lokale Dateien öffnen
+    %menucolor=black, % Acrobat-Menüpunkte
+    %urlcolor=black,
+%
+    %backref, % Quellen werden zurück auf ihre Zitate verlinkt
+    pdftex,
+    plainpages=false, % zur korrekten Erstellung der Bookmarks
+    pdfpagelabels=true, % zur korrekten Erstellung der Bookmarks
+    hypertexnames=false, % zur korrekten Erstellung der Bookmarks
+    linktocpage % Seitenzahlen anstatt Text im Inhaltsverzeichnis verlinken
+]{hyperref}
+% Befehle, die Umlaute ausgeben, führen zu Fehlern, wenn sie hyperref als Optionen übergeben werden
+\hypersetup{
+    pdftitle={\titel},
+    pdfauthor={\autorName},
+    pdfcreator={\autorName},
+    pdfsubject={\titel},
+    pdfkeywords={\titel},
+}
+
+\usepackage{caption} % Stellt sicher, dass Referenzen auf Abbildungen und Tabelle so scrollen, dass neben dem Untertitel auch die Abbildung oder Tabelle sichtbar ist
+
+% zum Einbinden von Programmcode -----------------------------------------------
+\usepackage{listings}

@@ -13,6 +13,12 @@
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
   "files.eol": "\n",
+  "latex-workshop.latex.outDir": "../out",
+  "[bibtex]": {
+    "editor.formatOnPaste": false,
+    "editor.formatOnSave": false,
+    "editor.formatOnType": false
+  },
   "[markdown]": {
     "editor.tabSize": 4
   }

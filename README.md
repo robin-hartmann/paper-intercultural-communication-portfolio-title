@@ -1,87 +1,36 @@
-# 📄 template-vscode
+# LaTeX-Vorlage zur Projektdokumentation für Fachinformatiker Anwendungsentwicklung
 
-Template for creating projects with Visual Studio Code
+Die Vorlage umfasst neben dem Layout und den obligatorischen Elementen wie Deckblatt, Verzeichnissen und Literaturangaben insbesondere eine Vorstrukturierung der üblicherweise geforderten Inhalte einer Dokumentation zur betrieblichen Projektarbeit inklusive einiger Beispiele für wichtige Inhalte wie z.B. Kostenkalkulation und Amortisationsrechnung. Obwohl viele Inhalte der Vorlage speziell auf Anwendungsentwickler zugeschnitten sind, dürfte die Vorlage auch für die anderen IT-Berufe (Fachinformatiker Systemintegration, IT-Kaufleute usw.) interessant sein, da die Vorgaben hinsichtlich der Projektarbeit größtenteils übereinstimmen.
 
-<img src="docs/images/usage.png" height="550">
+Mehr Informationen und eine Beispieldokumentation auf Basis dieser Vorlage gibt es hier: [Vorlage für die Projektdokumentation][fiaevorlage].
 
-## ⭐ Features
+[fiaevorlage]: http://fiae.link/LaTeXVorlageFIAE "Vorlage für die Projektdokumentation"
 
-- Settings for Visual Studio Code
-- README template with Emojis 🤩
+## Prerequisites
 
-## 💡 [Examples](docs/examples.md)
+- LaTeX distribution
+    - e.g. [MiKTeX](https://miktex.org/howto/install-miktex)
+        - requires a Perl distribution
+            - e.g. [ActivePerl](https://www.activestate.com/products/perl/downloads/)
+                - make sure the installer adds the folder containing the executable to the `PATH`
+- Editor with support for LaTeX
+    - e.g. [Visual Studio Code](https://code.visualstudio.com/) with the [LaTeX Workshop Extension](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop)
 
-## ⚡ Deployment
+## Troubleshooting
 
-These instructions will get you a release of this project up and running on your local machine, so that you can start using it.
+### Build fails with `LaTeX fatal error: spawn latexmk ENOENT, . PID: undefined.`
 
-### 📋 Prerequisites
+This means LaTeX Workshop couldn't locate the LaTeX executables on the `PATH`. Close and then re-open ALL Visual Studio Code windows. If the problem still persists, make sure you have a LaTeX distribution installed and added the folder containing the executables to the `PATH`.
 
-- [A GitHub Repository](https://help.github.com/en/github/getting-started-with-github/create-a-repo) - Hosting for the software development version control Git
-  - Or just anything that can render Markdown will do
-  - You could even use this `README.md` directly as a `README.txt`
+### Build fails with `latexmk: The script engine could not be found.`
 
-### 🚀 Getting Started
+This means `latexmk` couldn't locate `perl.exe` on the `PATH`. Close and then re-open ALL Visual Studio Code windows. If the problem still persists, make sure you have a Perl distribution installed and added the folder containing the executable to the `PATH`.
 
-Just copy all files contained in this repository to whereever you need them.
+### First Build takes a really long time to complete
 
-## 📘 [Documentation](docs/docs.md)
+This is normal, if you're using MiKTeX, because it needs to download all required packages. But make sure you haven't overlooked any package install dialog from MiKTeX, which is still open. Because in that case the build waits as long as that dialog is open. And unless you've allowed MiKTeX to install packages without asking, this dialog will open back up each time a package needs to be installed.
 
-## 🛠️ Development
+## Lizenz
 
-These instructions will get you a copy of this project up and running on your local machine for development and testing purposes.
-
-### 📋 Prerequisites
-
-- [Visual Studio Code](https://code.visualstudio.com/) - Code editor redefined and optimized for building and debugging modern web and cloud applications
-
-### 🚀 Getting Started
-
-1. Get a copy of this repository
-   - Either by clicking the `Use this template` button next to the `Clone or download` button and creating a new GitHub repository based on this template
-   - Or by clicking the `Clone or download` button and then cloning or just simply downloading the repository
-1. Start editing the repository contents
-   - Either by opening up this `README.md` in your text editor - or, even better, open the whole folder into which you cloned or downloaded this repository
-   - Or - if you're using a GitHub repository - by making the changes directly in the web interface, after you created your own repository based on this template
-1. Rename the `LICENSE` file, so it's clear that is the license for this original repository and keep it in your repository
-   - E.g. name it `LICENSE-template-vscode`
-1. Add your own `LICENSE` file
-1. Add your code and everything else, which is part of your project
-1. Add recommended extensions to `.vscode/extensions.json` under `recommendations`
-   - You need to enter the extension's ID, which you can find by selecting the extension in VSCode's Extension menu and then you'll see it next to the extension's name in the main window
-1. Change the title (`#`) of this README according to your project name and choose a fitting emoji to add to it
-1. Take a screenshot from your project in action and replace `docs/images/usage.png` with it
-1. Edit the sections as you need
-1. Add documentation and examples to `docs/`, if needed
-   - Otherwise remove `docs/docs.md` and `docs/examples.md`, as well as the relevant sections
-1. Remove other sections you don't need
-1. Remove emojis from 3rd-level sections (`###`), if they are too close together (= not a lot of content in the sections) to avoid them getting too distracting
-
-### 🐞 Troubleshooting
-
-#### Something is not working
-
-Do this thing to fix it.
-
-## 🧰 Built With
-
-### 📚 Resources
-
-- [EmojiKeyboard](https://emojikeyboard.top/) - Get Emoji by Copy & Paste
-
-### 🏛️ Libraries
-
-- [Library that was used]() - Short description of the library
-
-## 👨‍💻 Authors
-
-- **Robin Hartmann** - [robin-hartmann](https://github.com/robin-hartmann)
-  - _Entire Template_
-
-## 📃 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 👍 Acknowledgments
-
-- Special thanks to anyone you want to thank and similar things
+[![Creative Commons Lizenzvertrag](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-sa/4.0/)
+LaTeX-Vorlage zur IHK-Projektdokumentation für Fachinformatiker Anwendungsentwicklung von [Stefan Macke](http://fiae.link/LaTeXVorlageFIAE) ist lizenziert unter einer [Creative Commons Namensnennung - Weitergabe unter gleichen Bedingungen 4.0 International Lizenz](http://creativecommons.org/licenses/by-sa/4.0/).
