@@ -102,6 +102,12 @@
 \end{figure}
 }
 
+% fügt Quellcode in den Anhang ein (Parameter: path, language)
+\newcommand{\quellcode}[2]{%
+	\labeledsubappendix{Listing der Datei #1}%
+	\lstinputlisting[language=#2, caption=#1]{Listings/#1}%
+}
+
 % einfaches Wechseln der Schrift, z.B.: \changefont{cmss}{sbc}{n}
 \newcommand{\changefont}[3]{\fontfamily{#1} \fontseries{#2} \fontshape{#3} \selectfont}
 
@@ -119,7 +125,7 @@
 
 % The % comment at the end of certain lines removes the space otherwise inserted by the end-of-line character (which is usually turned into a space)
 
-\definecolor{AOBlau}{rgb}{0, 0.28, 0.56}
+\definecolor{Akzentfarbe}{rgb}{0, 0.28, 0.56} % @todo
 
 % verschiedene Befehle um Wörter semantisch auszuzeichnen ----------------------
 \newcommand{\Index}[2][\empty]{\ifthenelse{\equal{#1}{\empty}}{\index{#2}#2}{\index{#1}#2}}
