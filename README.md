@@ -1,6 +1,6 @@
 # 📄 paper-intercultural-communication-portfolio-title
 
-Deckblatt für mein Portfolio der Vorlesung Intercultural Communication der HsKA
+Deckblatt für mein Portfolio der Vorlesung Intercultural Communication an der HsKA
 
 <img src="docs/images/title-page.png" height="550">
 
