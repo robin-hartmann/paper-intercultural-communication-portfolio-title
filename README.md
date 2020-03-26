@@ -17,7 +17,7 @@ Folgen Sie diesen Anweisungen, um dieses Projekt auf Ihrem lokalen Rechner einzu
     - Stellen Sie sicher, dass der Installer den Ordner mit den Executables zum `PATH` hinzufügt
 - [Visual Studio Code](https://code.visualstudio.com/) mit der Erweiterung [LaTeX Workshop](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop)
 
-### 🚀 Erste Schritte
+### 🚀 Schnellstart
 
 | Pfad              | Inhalt                       | Anmerkung                                                                                                                    |
 | ----------------- | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
@@ -35,7 +35,7 @@ Der Build wird automatisch gestartet, wenn eine `.tex`-Datei gespeichert wird. A
 
 Mehr Informationen und eine Beispieldokumentation auf Basis der zugrundeliegenden Vorlage gibt es [hier](http://fiae.link/LaTeXVorlageFIAE).
 
-## 🐞 Troubleshooting
+## 🐞 Fehlerbehebung
 
 ### Das Formatieren von `.tex`-Dateien bricht ab mit dem Fehler `Can't locate Log/Log4perl.pm in @INC`
 
