@@ -23,7 +23,7 @@
 \usepackage{array}
 \usepackage{ragged2e}
 \usepackage{lscape}
-\newcolumntype{w}[1]{>{\raggedleft\hspace{0pt}}p{#1}} % Spaltendefinition rechtsbündig mit definierter Breite
+% \newcolumntype{w}[1]{>{\raggedleft\hspace{0pt}}p{#1}} % Spaltendefinition rechtsbündig mit definierter Breite
 \newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}} % Spaltendefinition linksbündig mit definierter Breite und manuellen Zeilenumbrüchen
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}} % Spaltendefinition zentriert mit definierter Breite und manuellen Zeilenumbrüchen
 \newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}} % Spaltendefinition rechtsbündig mit definierter Breite und manuellen Zeilenumbrüchen
@@ -41,9 +41,9 @@
 \usepackage{xspace} % sorgt dafür, dass Leerzeichen hinter parameterlosen Makros nicht als Makroendezeichen interpretiert werden
 \usepackage{siunitx} % ermöglicht u.a. automatische Tausender-Trennzeichen
 \sisetup{
-	locale = DE,
-	group-separator = {.},
-	group-minimum-digits = 4
+  locale = DE,
+  group-separator = {.},
+  group-minimum-digits = 4
 }
 
 \usepackage{makeidx} % für Index-Ausgabe mit \printindex
@@ -79,44 +79,45 @@
 \makesavenoteenv{table}
 \makesavenoteenv{tabular}
 
+\usepackage{scrhack} % Behebt ein paar Warnungen
+
 % PDF-Optionen -----------------------------------------------------------------
 \usepackage{pdfpages}
 \pdfminorversion=5 % erlaubt das Einfügen von pdf-Dateien bis Version 1.7, ohne eine Fehlermeldung zu werfen (keine Garantie für fehlerfreies Einbetten!)
-\usepackage[
-    bookmarks,
-    bookmarksnumbered,
-    bookmarksopen=true,
-    bookmarksopenlevel=1,
-    colorlinks=true,
-% diese Farbdefinitionen zeichnen Links im PDF farblich aus
-    linkcolor=Akzentfarbe, % einfache interne Verknüpfungen
-    anchorcolor=Akzentfarbe,% Ankertext
-    citecolor=Akzentfarbe, % Verweise auf Literaturverzeichniseinträge im Text
-    filecolor=Akzentfarbe, % Verknüpfungen, die lokale Dateien öffnen
-    menucolor=Akzentfarbe, % Acrobat-Menüpunkte
-    urlcolor=Akzentfarbe,
-% diese Farbdefinitionen sollten für den Druck verwendet werden (alles schwarz)
-    %linkcolor=black, % einfache interne Verknüpfungen
-    %anchorcolor=black, % Ankertext
-    %citecolor=black, % Verweise auf Literaturverzeichniseinträge im Text
-    %filecolor=black, % Verknüpfungen, die lokale Dateien öffnen
-    %menucolor=black, % Acrobat-Menüpunkte
-    %urlcolor=black,
-%
-    %backref, % Quellen werden zurück auf ihre Zitate verlinkt
-    pdftex,
-    plainpages=false, % zur korrekten Erstellung der Bookmarks
-    pdfpagelabels=true, % zur korrekten Erstellung der Bookmarks
-    hypertexnames=false, % zur korrekten Erstellung der Bookmarks
-    linktocpage % Seitenzahlen anstatt Text im Inhaltsverzeichnis verlinken
+\usepackage[ % Informationen über verfügbare Optionen gibt es hier: https://en.wikibooks.org/wiki/LaTeX/Hyperlinks#Customization
+  bookmarks,
+  bookmarksnumbered,
+  bookmarksopen=true,
+  bookmarksopenlevel=1,
+  colorlinks=true,
+  % diese Farbdefinitionen zeichnen Links im PDF farblich aus
+  linkcolor=Akzentfarbe, % einfache interne Verknüpfungen
+  anchorcolor=Akzentfarbe,% Ankertext
+  citecolor=Akzentfarbe, % Verweise auf Literaturverzeichniseinträge im Text
+  filecolor=Akzentfarbe, % Verknüpfungen, die lokale Dateien öffnen
+  menucolor=Akzentfarbe, % Acrobat-Menüpunkte
+  urlcolor=Akzentfarbe,
+  % diese Farbdefinitionen sollten für den Druck verwendet werden (alles schwarz)
+  %linkcolor=black, % einfache interne Verknüpfungen
+  %anchorcolor=black, % Ankertext
+  %citecolor=black, % Verweise auf Literaturverzeichniseinträge im Text
+  %filecolor=black, % Verknüpfungen, die lokale Dateien öffnen
+  %menucolor=black, % Acrobat-Menüpunkte
+  %urlcolor=black,
+  %
+  %backref, % Quellen werden zurück auf ihre Zitate verlinkt
+  pdftex,
+  plainpages=false, % zur korrekten Erstellung der Bookmarks
+  pdfpagelabels=true, % zur korrekten Erstellung der Bookmarks
+  hypertexnames=false, % zur korrekten Erstellung der Bookmarks
+  linktocpage % Seitenzahlen anstatt Text im Inhaltsverzeichnis verlinken
 ]{hyperref}
 % Befehle, die Umlaute ausgeben, führen zu Fehlern, wenn sie hyperref als Optionen übergeben werden
-\hypersetup{
-    pdftitle={\titel},
-    pdfauthor={\autorName},
-    pdfcreator={\autorName},
-    pdfsubject={\titel},
-    pdfkeywords={\titel},
+\hypersetup{ % Informationen über verfügbare Optionen gibt es hier: https://en.wikibooks.org/wiki/LaTeX/Hyperlinks#Customization
+  pdftitle={\titel},
+  pdfauthor={\autorName},
+  pdfsubject={\titel},
+  pdfkeywords={v\version},
 }
 
 \usepackage{caption} % Stellt sicher, dass Referenzen auf Abbildungen und Tabelle so scrollen, dass neben dem Untertitel auch die Abbildung oder Tabelle sichtbar ist

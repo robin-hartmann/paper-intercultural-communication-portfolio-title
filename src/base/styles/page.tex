@@ -5,9 +5,9 @@
 \geometry{a4paper,left=20mm,right=20mm,top=25mm,bottom=37mm}
 
 \usepackage[
-	automark, % Kapitelangaben in Kopfzeile automatisch erstellen
-	headsepline, % Trennlinie unter Kopfzeile
-	ilines % Trennlinie linksbündig ausrichten
+  automark, % Kapitelangaben in Kopfzeile automatisch erstellen
+  headsepline, % Trennlinie unter Kopfzeile
+  ilines % Trennlinie linksbündig ausrichten
 ]{scrpage2}
 
 % Kopf- und Fußzeilen ----------------------------------------------------------
@@ -19,19 +19,19 @@
 % Kopfzeile
 \renewcommand{\headfont}{\normalfont\sffamily} % Style der Kopf- und Fußzeile
 \renewcommand{\pnumfont}{\normalfont\sffamily} % Style der Seitennummer
-\ihead{\mbox{}\vfill\textit{\MakeUppercase{\headmark}}}
-\chead{}
-\ohead{\includegraphics[scale=0.075]{\hsLogoSmall}}
+\ihead{\mbox{}\vfill\textit{\MakeUppercase{\titel}}}
+% \chead{}
+\ohead{\includegraphics[scale=0.075]{\institutLogoSmall}}
 \setlength{\headheight}{15mm} % Höhe der Kopfzeile
 \setlength{\headsep}{9mm} % Abstand von Kopfzeile zu Text
 \setlength{\skip\footins}{3mm} % Abstand von Fußnoten zu Text
 %\setheadwidth[0pt]{textwithmarginpar} % Kopfzeile über den Text hinaus verbreitern (falls Logo den Text überdeckt)
 
 % Fußzeile
-\ifoot{\titel}
+% \ifoot{\autorName}
 \cfoot{\pagemark}
 % \ofoot{\autorName}
-\ofoot{\today}
+% \ofoot{\today}
 
 % Überschriften nach DIN 5008 in einer Fluchtlinie
 % ------------------------------------------------------------------------------
@@ -83,10 +83,6 @@
 \renewcommand{\labelenumi}{\arabic{enumi}.}
 \renewcommand{\labelenumii}{\arabic{enumi}.\arabic{enumii}.}
 \renewcommand{\labelenumiii}{\arabic{enumi}.\arabic{enumii}.\arabic{enumiii}}
-
-% Tabellenfärbung:
-\definecolor{heading}{rgb}{0.64,0.78,0.86}
-\definecolor{odd}{rgb}{0.9,0.9,0.9}
 
 % Streckungfaktor von Tabellen
 \renewcommand{\arraystretch}{1.3}

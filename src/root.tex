@@ -1,7 +1,9 @@
 %-----------------------------------------------------------------------------------------
-% Autor dieser Vorlage:
-% Stefan Macke (http://fachinformatiker-anwendungsentwicklung.net)
-% Permalink zur Vorlage: http://fiae.link/LaTeXVorlageFIAE
+% Autoren:
+% - Robin Hartmann (https://github.com/robin-hartmann):
+%   - template-paper-latex (https://github.com/robin-hartmann/template-paper-latex)
+% - Stefan Macke (http://fachinformatiker-anwendungsentwicklung.net):
+%   - zugrundeliegende LaTeX-Vorlage (http://fiae.link/LaTeXVorlageFIAE)
 %
 % Lizenz: Creative Commons 4.0 Namensnennung - Weitergabe unter gleichen Bedingungen
 % -----------------------------------------------------------------------------------------
@@ -19,15 +21,14 @@
 
 \input{meta} % metadaten zu diesem Dokument (Autor usw.)
 \input{base/packages} % verwendete Packages
-\input{base/commands} % eigene allgemeine Befehle, die z.B. die Arbeit mit LaTeX erleichtern
 \input{base/styles/page} % Definitionen zum Aussehen der Seiten
-\input{base/styles/listing} % Definitionen zum Aussehen des Codes
 
 \begin{document}
 
 \phantomsection
 \thispagestyle{plain}
-\pdfbookmark[1]{Deckblatt}{deckblatt}
-\input{title}
+\pdfbookmark[1]{Title}{title}
+\setcounter{page}{0} % Seitenzahl des Deckblatts auf 0 setzen, damit es im Dokument nicht 2x die Seitenzahl 1 gibt und somit alle Seitenzahlen eindeutig sind
+\input{base/styles/title}
 
 \end{document}
