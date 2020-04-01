@@ -23,7 +23,7 @@
 \usepackage{array}
 \usepackage{ragged2e}
 \usepackage{lscape}
-\newcolumntype{w}[1]{>{\raggedleft\hspace{0pt}}p{#1}} % Spaltendefinition rechtsbündig mit definierter Breite
+% \newcolumntype{w}[1]{>{\raggedleft\hspace{0pt}}p{#1}} % Spaltendefinition rechtsbündig mit definierter Breite
 \newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}} % Spaltendefinition linksbündig mit definierter Breite und manuellen Zeilenumbrüchen
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}} % Spaltendefinition zentriert mit definierter Breite und manuellen Zeilenumbrüchen
 \newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}} % Spaltendefinition rechtsbündig mit definierter Breite und manuellen Zeilenumbrüchen
@@ -79,10 +79,12 @@
 \makesavenoteenv{table}
 \makesavenoteenv{tabular}
 
+\usepackage{scrhack} % Behebt ein paar Warnungen
+
 % PDF-Optionen -----------------------------------------------------------------
 \usepackage{pdfpages}
 \pdfminorversion=5 % erlaubt das Einfügen von pdf-Dateien bis Version 1.7, ohne eine Fehlermeldung zu werfen (keine Garantie für fehlerfreies Einbetten!)
-\usepackage[
+\usepackage[ % Informationen über verfügbare Optionen gibt es hier: https://en.wikibooks.org/wiki/LaTeX/Hyperlinks#Customization
   bookmarks,
   bookmarksnumbered,
   bookmarksopen=true,
@@ -111,10 +113,11 @@
   linktocpage % Seitenzahlen anstatt Text im Inhaltsverzeichnis verlinken
 ]{hyperref}
 % Befehle, die Umlaute ausgeben, führen zu Fehlern, wenn sie hyperref als Optionen übergeben werden
-\hypersetup{
+\hypersetup{ % Informationen über verfügbare Optionen gibt es hier: https://en.wikibooks.org/wiki/LaTeX/Hyperlinks#Customization
   pdftitle={\titel},
   pdfauthor={\autorName},
   pdfsubject={\titel},
+  pdfkeywords={v\version},
 }
 
 \usepackage{caption} % Stellt sicher, dass Referenzen auf Abbildungen und Tabelle so scrollen, dass neben dem Untertitel auch die Abbildung oder Tabelle sichtbar ist

@@ -9,17 +9,13 @@
   "editor.tabSize": 2,
   "editor.insertSpaces": true,
   "editor.detectIndentation": false,
+  "files.associations": {
+    "natbib.cfg": "latex"
+  },
   "files.trimTrailingWhitespace": true,
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
   "files.eol": "\n",
-  "latex-workshop.latex.outDir": "../out",
-  "[bibtex]": {
-    "editor.formatOnPaste": false,
-    "editor.formatOnSave": false,
-    "editor.formatOnType": false
-  },
-  "[markdown]": {
-    "editor.tabSize": 4
-  }
+  "latex-workshop.latex.autoBuild.run": "onFileChange",
+  "latex-workshop.latex.outDir": "../out"
 }
