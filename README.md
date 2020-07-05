@@ -28,7 +28,7 @@ Folgen Sie diesen Anweisungen, um dieses Projekt auf Ihrem lokalen Rechner einzu
 | --- `title.tex`   | Style des Deckblatts         |                                                                                                                              |
 | -- `packages.tex` | Verwendete Packages          |                                                                                                                              |
 | - `images/`       | Bilder                       | Hier werden alle Bilder abgelegt.                                                                                            |
-| - `meta.tex`      | Metadaten des Dokuments      | Hier wird hauptsächlichder Inhalt des Deckblatts festgelegt.                                                                 |
+| - `meta.tex`      | Metadaten des Dokuments      | Hier wird hauptsächlich der Inhalt des Deckblatts festgelegt.                                                                 |
 | - `root.tex`      | Dokumentenstamm              | Hier wird die Struktur des Dokuments festgelegt und alle Bestandteile geladen.<br>Diese Datei sollte nicht umbenannt werden. |
 
 Der Build wird automatisch gestartet, wenn eine `.tex`-Datei gespeichert wird. Alternativ kann der Build über `Seitenmenü > LaTeX > Build LaTeX project` gestartet werden. Die erzeugte PDF-Datei wird unter `out/root.pdf` abgelegt. Es wird empfohlen den Dateinamen der PDF-Datei vor Auslieferung entsprechend dem Titel und/oder Untertitel des Dokuments anzupassen. Alle übrigen Dateien und Ordner in `out/` sind temporär und können ohne Bedenken gelöscht werden.
